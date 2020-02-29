@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import SearchBar from './components/SearchBar';
-import VideoList from './components/VideoList';
-import axios from 'axios';
-const API_KEY = 'AIzaSyBCiL5-MFK3JhSA69kGRvJT8oN4mbLGmjs';
+import SearchBar from "./components/SearchBar";
+import VideoList from "./components/VideoList";
+import axios from "axios";
+const API_KEY = "AIzaSyBCiL5-MFK3JhSA69kGRvJT8oN4mbLGmjs";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     SearchBar,
     VideoList
@@ -22,17 +22,18 @@ export default {
   },
   methods: {
     onTermChange(searchTerm) {
-      // console.log(searchTerm);
+      console.log(searchTerm);
       axios
-        .get('https://www.googleapis.com/youtube/v3/search', {
+        .get("https://www.googleapis.com/youtube/v3/search", {
           params: {
             key: API_KEY,
-            part: 'snippet',
+            part: "snippet",
             q: searchTerm
           }
         })
         .then(res => {
           this.videos = res.data.items;
+          console.log(res);
         });
     }
   }
