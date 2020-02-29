@@ -1,16 +1,19 @@
 <template>
   <div>
-    <input @input="onInput" />
+    <form @submit="onSubmit">
+      <input />
+      <button type="submit">Search</button>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SearchBar',
+  name: "SearchBar",
   methods: {
-    onInput(event) {
-      // console.log(event.target.value);
-      this.$emit('termChange', event.target.value);
+    onSubmit(event) {
+      event.preventDefault();
+      this.$emit("termSubmit", event.target.children[0].value);
     }
   }
 };
