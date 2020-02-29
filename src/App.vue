@@ -1,23 +1,26 @@
 <template>
   <div class="container">
     <SearchBar @termSubmit="onTermSubmit"></SearchBar>
-    <VideoList :videos="videos"></VideoList>
+    <VideoDetail :video="selectedVideo" />
+    <VideoList @videoSelect="onVideoSelect" :videos="videos"></VideoList>
   </div>
 </template>
 
 <script>
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoDetail from "./components/VideoDetail";
 import axios from "axios";
 
 export default {
   name: "App",
   components: {
     SearchBar,
-    VideoList
+    VideoList,
+    VideoDetail
   },
   data() {
-    return { videos: [] };
+    return { videos: [], selectedVideo: null };
   },
   methods: {
     onTermSubmit(searchTerm) {
@@ -33,6 +36,9 @@ export default {
         .then(res => {
           this.videos = res.data.items;
         });
+    },
+    onVideoSelect(video) {
+      this.selectedVideo = video;
     }
   }
 };
