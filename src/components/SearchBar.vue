@@ -9,11 +9,11 @@
 
 <script>
 export default {
-  name: "SearchBar",
+  name: 'SearchBar',
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      this.$emit("termSubmit", event.target.children[0].value);
+      this.$emit('termSubmit', event.target.children[0].value);
     }
   }
 };

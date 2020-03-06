@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <SearchBar @termSubmit="onTermSubmit"></SearchBar>
     <div class="row">
       <VideoDetail :video="selectedVideo" />
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import SearchBar from "./components/SearchBar";
-import VideoList from "./components/VideoList";
-import VideoDetail from "./components/VideoDetail";
-import axios from "axios";
+import SearchBar from './components/SearchBar';
+import VideoList from './components/VideoList';
+import VideoDetail from './components/VideoDetail';
+import axios from 'axios';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     SearchBar,
     VideoList,
@@ -28,10 +28,10 @@ export default {
     onTermSubmit(searchTerm) {
       console.log(searchTerm);
       axios
-        .get("https://www.googleapis.com/youtube/v3/search", {
+        .get('https://www.googleapis.com/youtube/v3/search', {
           params: {
             key: process.env.VUE_APP_API_KEY,
-            part: "snippet",
+            part: 'snippet',
             q: searchTerm
           }
         })

@@ -4,16 +4,16 @@
       <iframe class="embed-responsive-item" :src="videoUrl" />
     </div>
     <div class="details">
-      <h4>{{ video.snippet.title}}</h4>
-      <p>{{video.snippet.description}}</p>
+      <h4>{{ video.snippet.title }}</h4>
+      <p>{{ video.snippet.description }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "VideoDetail",
-  props: ["video"],
+  name: 'VideoDetail',
+  props: ['video'],
   computed: {
     videoUrl() {
       const videoId = this.video.id.videoId;
