@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li @click="onVideoSelect">
     <div class="image__container">
       <img :src="thumbnails" alt="thumbnail" />
     </div>
@@ -14,12 +14,19 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'SearchResultItem',
   props: ['video'],
   computed: {
     thumbnails() {
       return this.video.snippet.thumbnails.default.url;
+    }
+  },
+  methods: {
+    ...mapActions(['selectVideo']),
+    onVideoSelect() {
+      this.selectVideo(this.video);
     }
   }
 };
@@ -39,6 +46,7 @@ export default {
   display: flex;
   width: 80%;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .info__content h3 {
