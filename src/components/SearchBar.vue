@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <form class="form__search">
-      <button type="submit">
-        <i class="fas fa-search"></i>
-      </button>
-      <input type="text" placeholder="Search..." />
-    </form>
-  </div>
+  <form class="form__search">
+    <button type="submit">
+      <i class="fas fa-search"></i>
+    </button>
+    <input type="text" placeholder="Search..." />
+  </form>
 </template>
 
 <script>

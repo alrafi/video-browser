@@ -2,7 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <Sidebar></Sidebar>
-      <Content></Content>
+      <div class="col-10 main__content">
+        <SearchBar></SearchBar>
+        <!-- <Content></Content> -->
+        <SearchResult></SearchResult>
+      </div>
     </div>
   </div>
 </template>
@@ -13,16 +17,17 @@
 // import VideoDetail from './components/VideoDetail';
 // import axios from "axios";
 import Sidebar from "./components/Sidebar";
-import Content from "./components/Content";
+import SearchBar from "./components/SearchBar";
+// import Content from "./components/Content";
+import SearchResult from "./components/SearchResult";
 
 export default {
   name: "App",
   components: {
     Sidebar,
-    Content
-    //   SearchBar,
-    //   VideoList,
-    //   VideoDetail
+    // Content,
+    SearchBar,
+    SearchResult
   },
   data() {
     // return { videos: [], selectedVideo: null };
@@ -63,5 +68,9 @@ body {
   font-family: "Lato", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 300;
+}
+
+.main__content {
+  padding: 20px;
 }
 </style>
