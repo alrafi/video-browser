@@ -2,7 +2,7 @@
   <div class="col-2 full__height sidebar">
     <div class="title">
       <i class="fas fa-bars"></i>
-      <img src="./logo.png" alt="vue-logo" />
+      <img src="../assets/logo.png" alt="vue-logo" />
       <h1>ueTube</h1>
     </div>
     <div class="menu__sidebar">
