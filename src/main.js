@@ -4,6 +4,7 @@ import App from './App';
 import store from './store';
 import Content from './components/Content';
 import SearchResult from './components/SearchResult';
+import VideoDetail from './components/VideoDetail';
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,10 @@ export const router = new VueRouter({
     {
       path: '/search',
       component: SearchResult
+    },
+    {
+      path: '/play',
+      component: VideoDetail
     }
   ]
 });
