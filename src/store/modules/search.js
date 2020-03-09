@@ -23,6 +23,7 @@ const actions = {
   selectVideo({ commit }, video) {
     commit('setSelectedVideo', video);
     router.push('/play');
+    commit('setKind', video.kind);
   }
 };
 
