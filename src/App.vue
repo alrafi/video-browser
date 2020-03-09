@@ -30,9 +30,9 @@ export default {
     // Content,
     // SearchResult
   },
-  data() {
-    // return { videos: [], selectedVideo: null };
-  },
+  // data() {
+  //   // return { videos: [], selectedVideo: null };
+  // },
   methods: {
     // onTermSubmit(searchTerm) {
     //   console.log(searchTerm);
