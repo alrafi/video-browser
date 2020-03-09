@@ -12,7 +12,7 @@ export default {
   props: ['video'],
   computed: {
     thumbnail() {
-      return this.video.snippet.thumbnails.default.url;
+      return this.video.snippet.thumbnails.medium.url;
     },
     videoTitle() {
       return this.video.snippet.title;
