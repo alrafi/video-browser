@@ -5,12 +5,14 @@ const state = {
   searchResult: []
 };
 
-const getters = {};
+const getters = {
+  getSearchResult: state => state.searchResult
+};
 
 const actions = {
   async fetchVideos({ commit }, searchTerm) {
     const response = await api.fetchVideosBySearch(searchTerm);
-
+    // console.log(response.data.items);
     commit('setSearchResult', response.data.items);
 
     router.push('/search');
