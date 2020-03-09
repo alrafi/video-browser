@@ -3,12 +3,15 @@ import { router } from '../../main';
 
 const state = {
   searchResult: [],
-  selectedVideo: null
+  selectedVideo: null,
+  kind: null
 };
 
 const getters = {
   videosResult: state => state.searchResult,
-  getSelectedVideo: state => state.selectedVideo
+  getSelectedVideo: state => state.selectedVideo,
+  isRecommended: state => !!state.searchResult,
+  kindRequest: state => state.kind
 };
 
 const actions = {
@@ -29,6 +32,10 @@ const mutations = {
   },
   setSelectedVideo: (state, video) => {
     state.selectedVideo = video;
+  },
+  setKind: (state, kind) => {
+    state.kind = kind;
+    console.log(state.kind);
   }
 };
 
