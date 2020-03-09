@@ -26,11 +26,9 @@ const actions = {
 const mutations = {
   setSearchResult: (state, videos) => {
     state.searchResult = videos;
-    console.log(state.searchResult);
   },
   setSelectedVideo: (state, video) => {
     state.selectedVideo = video;
-    console.log(state.selectedVideo);
   }
 };
 
