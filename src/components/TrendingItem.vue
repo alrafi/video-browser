@@ -1,11 +1,12 @@
 <template>
-  <div class="col">
+  <div class="col" @click="onVideoSelect">
     <img :src="thumbnail" alt="thumbnail" />
     <h3>{{ videoTitle }}</h3>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'TrendingItem',
   props: ['video'],
@@ -15,6 +16,12 @@ export default {
     },
     videoTitle() {
       return this.video.snippet.title;
+    }
+  },
+  methods: {
+    ...mapActions(['selectContent']),
+    onVideoSelect() {
+      this.selectContent(this.video);
     }
   }
 };
@@ -32,6 +39,7 @@ export default {
   padding: 0;
   margin-right: 15px;
   color: #333;
+  cursor: pointer;
 }
 .trending__content .col h3 {
   font-size: 70%;
