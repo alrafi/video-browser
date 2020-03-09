@@ -1,23 +1,13 @@
 <template>
-  <!-- <div v-if="video" class="col-md-8">
-    <div class="embed-responsive embed-responsive-16by9">
-      <iframe class="embed-responsive-item" :src="videoUrl" />
-    </div>
-    <div class="details">
-      <h4>{{ video.snippet.title }}</h4>
-      <p>{{ video.snippet.description }}</p>
-    </div>
-  </div> -->
   <div class="row detail__video">
     <div class="col-8">
-      <img src="../assets/thumbnail.webp" alt="" thumbnail />
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" :src="videoUrl" />
+      </div>
       <div class="info__detail">
-        <h3>lofi hip hop radio - beats to relax/study to</h3>
-        <h4>chilledcow music</h4>
-        <p>
-          Thank you for listening, I hope you will have a good time here :)
-          Listen to the playlist on Spotify, Apple music and more
-        </p>
+        <h3>{{ videoTitle }}</h3>
+        <h4>{{ videoChanel }}</h4>
+        <p>{{ videoDescription }}</p>
       </div>
     </div>
     <div class="col-4 recommended__video">
@@ -56,13 +46,23 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   name: 'VideoDetail',
-  props: ['video'],
   computed: {
+    ...mapGetters(['getSelectedVideo']),
     videoUrl() {
-      const videoId = this.video.id.videoId;
+      const videoId = this.getSelectedVideo.id.videoId;
       return `https://youtube.com/embed/${videoId}`;
+    },
+    videoTitle() {
+      return this.getSelectedVideo.snippet.title;
+    },
+    videoChanel() {
+      return this.getSelectedVideo.snippet.channelTitle;
+    },
+    videoDescription() {
+      return this.getSelectedVideo.snippet.description;
     }
   }
 };
