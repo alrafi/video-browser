@@ -7,7 +7,8 @@ const state = {
 };
 
 const getters = {
-  videosResult: state => state.searchResult
+  videosResult: state => state.searchResult,
+  getSelectedVideo: state => state.selectedVideo
 };
 
 const actions = {
@@ -18,6 +19,7 @@ const actions = {
   },
   selectVideo({ commit }, video) {
     commit('setSelectedVideo', video);
+    router.push('/play');
   }
 };
 
