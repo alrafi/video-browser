@@ -1,14 +1,13 @@
 <template>
   <li>
     <div class="image__container">
-      <img src="../assets/thumbnail.webp" alt="thumbnail" />
+      <img :src="thumbnails" alt="thumbnail" />
     </div>
     <div class="info__content">
-      <h3>lofi hip hop radio - beats to relax/study to</h3>
-      <p>chilledcow music</p>
+      <h3>{{ video.snippet.title }}</h3>
+      <p>{{ video.snippet.channelTitle }}</p>
       <p>
-        Thank you for listening, I hope you will have a good time here :) Listen
-        to the playlist on Spotify, Apple music and more
+        {{ video.snippet.description }}
       </p>
     </div>
   </li>
@@ -16,7 +15,13 @@
 
 <script>
 export default {
-  name: 'SearchResultItem'
+  name: 'SearchResultItem',
+  props: ['video'],
+  computed: {
+    thumbnails() {
+      return this.video.snippet.thumbnails.default.url;
+    }
+  }
 };
 </script>
 
