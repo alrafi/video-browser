@@ -13,33 +13,11 @@
     <div class="col-4 recommended__video">
       <p>Recommended</p>
       <ul>
-        <li>
-          <div class="image__container">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          </div>
-          <div class="info__recommended">
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-            <p>chilledcow music</p>
-          </div>
-        </li>
-        <li>
-          <div class="image__container">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          </div>
-          <div class="info__recommended">
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-            <p>chilledcow music</p>
-          </div>
-        </li>
-        <li>
-          <div class="image__container">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          </div>
-          <div class="info__recommended">
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-            <p>chilledcow music</p>
-          </div>
-        </li>
+        <RecommendedItem
+          v-for="video in videosResult"
+          :key="video.etag"
+          :video="video"
+        ></RecommendedItem>
       </ul>
     </div>
   </div>
@@ -47,10 +25,15 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import RecommendedItem from './RecommendedItem';
+
 export default {
   name: 'VideoDetail',
+  components: {
+    RecommendedItem
+  },
   computed: {
-    ...mapGetters(['getSelectedVideo']),
+    ...mapGetters(['getSelectedVideo', 'videosResult']),
     videoUrl() {
       const videoId = this.getSelectedVideo.id.videoId;
       return `https://youtube.com/embed/${videoId}`;
@@ -94,23 +77,5 @@ export default {
 
 .info__detail p {
   font-size: 80%;
-}
-
-.recommended__video ul {
-  list-style: none;
-}
-
-.recommended__video li {
-  display: flex;
-  /* width: 80%; */
-  margin-bottom: 15px;
-}
-
-.info__recommended h3 {
-  font-size: 80%;
-}
-
-.info__recommended p {
-  font-size: 70%;
 }
 </style>

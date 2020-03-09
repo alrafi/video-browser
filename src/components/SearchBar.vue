@@ -3,7 +3,7 @@
     <button type="submit">
       <i class="fas fa-search"></i>
     </button>
-    <input type="text" placeholder="Search..." />
+    <input type="text" placeholder="Search..." v-model="searchTerm" />
   </form>
 </template>
 
@@ -17,9 +17,9 @@ export default {
     ...mapActions(['fetchVideos']),
     onSubmit(event) {
       event.preventDefault();
-      const searchTerm = event.target.children[1].value;
-      console.log(searchTerm);
-      this.fetchVideos(searchTerm);
+      // const searchTerm = event.target.children[1].value;
+      console.log(`v-model: ${this.searchTerm}`);
+      this.fetchVideos(this.searchTerm);
     }
   }
 };
