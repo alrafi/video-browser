@@ -10,7 +10,7 @@
         <p>{{ videoDescription }}</p>
       </div>
     </div>
-    <div class="col-4 recommended__video">
+    <div v-if="isRecommended" class="col-4 recommended__video">
       <p>Recommended</p>
       <ul>
         <RecommendedItem
@@ -33,9 +33,19 @@ export default {
     RecommendedItem
   },
   computed: {
-    ...mapGetters(['getSelectedVideo', 'videosResult']),
+    ...mapGetters([
+      'getSelectedVideo',
+      'videosResult',
+      'isRecommended',
+      'kindRequest'
+    ]),
     videoUrl() {
-      const videoId = this.getSelectedVideo.id.videoId;
+      let videoId;
+      if (this.kindRequest === 'youtube#video') {
+        videoId = this.getSelectedVideo.id;
+      } else {
+        videoId = this.getSelectedVideo.id.videoId;
+      }
       return `https://youtube.com/embed/${videoId}`;
     },
     videoTitle() {
