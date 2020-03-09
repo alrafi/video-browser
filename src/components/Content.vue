@@ -1,5 +1,5 @@
 <template>
-  <div class="full__height content">
+  <div class="full__height">
     <TrendingContent></TrendingContent>
     <SectionContent></SectionContent>
   </div>
@@ -7,11 +7,11 @@
 
 <script>
 // import SearchBar from "./SearchBar";
-import TrendingContent from "./TrendingContent";
-import SectionContent from "./SectionContent";
+import TrendingContent from './TrendingContent';
+import SectionContent from './SectionContent';
 
 export default {
-  name: "Content",
+  name: 'Content',
   components: {
     // SearchBar,
     TrendingContent,
@@ -22,10 +22,6 @@ export default {
 
 <style>
 /* CONTENT */
-.content {
-  padding: 20px;
-}
-
 .full__height {
   height: auto;
   /* border: 1px solid #ccc; */
