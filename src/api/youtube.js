@@ -23,14 +23,15 @@ export default {
       }
     });
   },
-  fetchGamingVideos: () => {
+  fetchCategoryVideos: (id, max = 5) => {
     return axios.get(`${ROOT_URL}/videos`, {
       params: {
         key: process.env.VUE_APP_API_KEY,
         part: 'snippet, statistics',
         chart: 'mostPopular',
         regionCode: 'ID',
-        videoCategoryId: 20
+        videoCategoryId: id,
+        maxResults: max
       }
     });
   }
