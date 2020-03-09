@@ -1,47 +1,67 @@
 <template>
-  <div>
-    <SearchBar @termSubmit="onTermSubmit"></SearchBar>
+  <div class="container-fluid">
     <div class="row">
-      <VideoDetail :video="selectedVideo" />
-      <VideoList @videoSelect="onVideoSelect" :videos="videos"></VideoList>
+      <Sidebar></Sidebar>
+      <Content></Content>
     </div>
   </div>
 </template>
 
 <script>
-import SearchBar from './components/SearchBar';
-import VideoList from './components/VideoList';
-import VideoDetail from './components/VideoDetail';
-import axios from 'axios';
+// import SearchBar from './components/SearchBar';
+// import VideoList from './components/VideoList';
+// import VideoDetail from './components/VideoDetail';
+// import axios from "axios";
+import Sidebar from "./components/Sidebar";
+import Content from "./components/Content";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    SearchBar,
-    VideoList,
-    VideoDetail
+    Sidebar,
+    Content
+    //   SearchBar,
+    //   VideoList,
+    //   VideoDetail
   },
   data() {
-    return { videos: [], selectedVideo: null };
+    // return { videos: [], selectedVideo: null };
   },
   methods: {
-    onTermSubmit(searchTerm) {
-      console.log(searchTerm);
-      axios
-        .get('https://www.googleapis.com/youtube/v3/search', {
-          params: {
-            key: process.env.VUE_APP_API_KEY,
-            part: 'snippet',
-            q: searchTerm
-          }
-        })
-        .then(res => {
-          this.videos = res.data.items;
-        });
-    },
-    onVideoSelect(video) {
-      this.selectedVideo = video;
-    }
+    // onTermSubmit(searchTerm) {
+    //   console.log(searchTerm);
+    //   axios
+    //     .get("https://www.googleapis.com/youtube/v3/search", {
+    //       params: {
+    //         key: process.env.VUE_APP_API_KEY,
+    //         part: "snippet",
+    //         q: searchTerm
+    //       }
+    //     })
+    //     .then(res => {
+    //       this.videos = res.data.items;
+    //     });
+    // },
+    // onVideoSelect(video) {
+    //   this.selectedVideo = video;
+    // }
   }
 };
 </script>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #18141c;
+  color: #d2cdd3;
+  font-family: "Lato", "Arial", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+</style>

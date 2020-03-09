@@ -72,4 +72,66 @@ export default {
 </script>
 
 <style>
+/* SIDEBAR*/
+h1 {
+  font-size: 100%;
+}
+
+.title {
+  display: flex;
+  /* align-items: baseline; */
+}
+
+.title img {
+  width: 25px;
+  height: 25px;
+}
+
+.title h1 {
+  margin: 0;
+}
+
+.title i {
+  width: 14px;
+  height: 14px;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+.full__height {
+  height: auto;
+  /* border: 1px solid #ccc; */
+}
+
+.sidebar {
+  padding: 20px;
+  background-color: #0c0e1f;
+}
+
+.menu__sidebar {
+  margin: 30px 0;
+  font-size: 70%;
+}
+
+.menu__sidebar ul {
+  list-style: none;
+}
+
+.menu__sidebar p {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #eee;
+}
+
+.menu__sidebar li {
+  margin-bottom: 5px;
+}
+
+.menu__sidebar .fas,
+.menu__sidebar .fab {
+  width: 12px;
+  height: 12px;
+  margin-right: 20px;
+}
 </style>
