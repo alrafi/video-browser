@@ -3,30 +3,30 @@
     <p>Trending</p>
     <div class="container">
       <div class="row">
-        <div class="col">
-          <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          <h3>lofi hip hop radio - beats to relax/study to</h3>
-        </div>
-        <div class="col">
-          <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          <h3>lofi hip hop radio - beats to relax/study to</h3>
-        </div>
-        <div class="col">
-          <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          <h3>lofi hip hop radio - beats to relax/study to</h3>
-        </div>
-        <div class="col">
-          <img src="../assets/thumbnail.webp" alt="thumbnail" />
-          <h3>lofi hip hop radio - beats to relax/study to</h3>
-        </div>
+        <TrendingItem
+          v-for="trending in trendingVideos"
+          :key="trending.etag"
+          :video="trending"
+        ></TrendingItem>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+import TrendingItem from './TrendingItem';
+
 export default {
-  name: "TrendingContent"
+  name: 'TrendingContent',
+  components: {
+    TrendingItem
+  },
+  computed: mapGetters(['trendingVideos']),
+  methods: mapActions(['fetchContent']),
+  created() {
+    this.fetchContent();
+  }
 };
 </script>
 
@@ -34,26 +34,5 @@ export default {
 /* trending content */
 .trending__content {
   margin-top: 30px;
-}
-
-.trending__content p {
-  font-weight: 600;
-}
-
-.trending__content .col {
-  background-color: #eee;
-  border: 1px solid #363140;
-  border-radius: 10px;
-  padding: 0;
-  margin-right: 15px;
-  color: #333;
-}
-.trending__content .col h3 {
-  font-size: 70%;
-  margin: 10px;
-}
-.trending__content img {
-  width: 100%;
-  border-radius: 10px;
 }
 </style>
