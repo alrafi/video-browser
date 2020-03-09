@@ -10,11 +10,11 @@
         <p>{{ videoDescription }}</p>
       </div>
     </div>
-    <div v-if="isRecommended" class="col-4 recommended__video">
+    <div class="col-4 recommended__video">
       <p>Recommended</p>
       <ul>
         <RecommendedItem
-          v-for="video in videosResult"
+          v-for="video in recommendedVideos"
           :key="video.etag"
           :video="video"
         ></RecommendedItem>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import RecommendedItem from './RecommendedItem';
 
 export default {
@@ -36,8 +36,8 @@ export default {
     ...mapGetters([
       'getSelectedVideo',
       'videosResult',
-      'isRecommended',
-      'kindRequest'
+      'kindRequest',
+      'recommendedVideos'
     ]),
     videoUrl() {
       let videoId;
@@ -57,6 +57,10 @@ export default {
     videoDescription() {
       return this.getSelectedVideo.snippet.description;
     }
+  },
+  methods: mapActions(['fetchRecommended']),
+  created() {
+    this.fetchRecommended(this.getSelectedVideo.snippet.categoryId);
   }
 };
 </script>

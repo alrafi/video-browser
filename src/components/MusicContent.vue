@@ -4,23 +4,11 @@
       <p>Music</p>
       <div class="container">
         <div class="row">
-          <div class="col item__music">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-          </div>
-          <div class="col item__music">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-          </div>
-          <div class="w-100"></div>
-          <div class="col item__music">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-          </div>
-          <div class="col item__music">
-            <img src="../assets/thumbnail.webp" alt="thumbnail" />
-            <h3>lofi hip hop radio - beats to relax/study to</h3>
-          </div>
+          <MusicItem
+            v-for="music in musicVideos"
+            :key="music.etag"
+            :video="music"
+          ></MusicItem>
         </div>
       </div>
     </div>
@@ -28,38 +16,31 @@
 </template>
 
 <script>
+import MusicItem from './MusicItem';
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
-  name: "MusicContent"
+  name: 'MusicContent',
+  components: { MusicItem },
+  computed: mapGetters(['musicVideos']),
+  methods: mapActions(['fetchMusic']),
+  created() {
+    this.fetchMusic();
+  }
 };
 </script>
 
 <style>
 /* music content */
+.music__content {
+  margin-left: 15px;
+}
+
 .music__content .item__music {
   padding: 0;
 }
 
-.music__content .col {
-  background-color: #eee;
-  border: 1px solid #363140;
-  border-radius: 10px;
-  padding: 0;
-  margin-right: 15px;
-  color: #333;
-}
-
-.music__content .col h3 {
-  font-size: 70%;
-  margin: 10px;
-}
-
-.music__content img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.item__music {
-  margin-right: 15px;
-  margin-bottom: 15px;
+.music__content .row {
+  box-sizing: border-box;
 }
 </style>
