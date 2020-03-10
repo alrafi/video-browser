@@ -29,7 +29,6 @@ h1 {
 
 .header__app {
   height: 50px;
-  /* border-bottom: 1px solid #eee; */
   display: flex;
   background-color: #272727;
   padding: 8px 0;

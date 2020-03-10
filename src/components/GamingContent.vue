@@ -32,7 +32,11 @@ export default {
 
 <style>
 /* gaming content */
-.col .gaming__content {
+.gaming__content {
   margin-right: 20px;
+}
+
+div.col-12.col-sm-6 {
+  padding: 0;
 }
 </style>
