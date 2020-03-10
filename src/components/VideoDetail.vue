@@ -1,6 +1,6 @@
 <template>
   <div class="row detail__video">
-    <div class="col-8">
+    <div class="col-12 col-md-8">
       <div class="embed-responsive embed-responsive-16by9">
         <iframe class="embed-responsive-item" :src="videoUrl" />
       </div>
@@ -10,38 +10,34 @@
         <p>{{ videoDescription }}</p>
       </div>
     </div>
-    <div class="col-4 recommended__video">
+    <div class="col-12 col-md-4 recommended__video">
       <p>Recommended</p>
       <ul>
-        <RecommendedItem
-          v-for="video in recommendedVideos"
-          :key="video.etag"
-          :video="video"
-        ></RecommendedItem>
+        <RecommendedItem v-for="video in recommendedVideos" :key="video.etag" :video="video"></RecommendedItem>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import RecommendedItem from './RecommendedItem';
+import { mapGetters, mapActions } from "vuex";
+import RecommendedItem from "./RecommendedItem";
 
 export default {
-  name: 'VideoDetail',
+  name: "VideoDetail",
   components: {
     RecommendedItem
   },
   computed: {
     ...mapGetters([
-      'getSelectedVideo',
-      'videosResult',
-      'kindRequest',
-      'recommendedVideos'
+      "getSelectedVideo",
+      "videosResult",
+      "kindRequest",
+      "recommendedVideos"
     ]),
     videoUrl() {
       let videoId;
-      if (this.kindRequest === 'youtube#video') {
+      if (this.kindRequest === "youtube#video") {
         videoId = this.getSelectedVideo.id;
       } else {
         videoId = this.getSelectedVideo.id.videoId;
@@ -58,7 +54,7 @@ export default {
       return this.getSelectedVideo.snippet.description;
     }
   },
-  methods: mapActions(['fetchRecommended']),
+  methods: mapActions(["fetchRecommended"]),
   created() {
     this.fetchRecommended(this.getSelectedVideo.snippet.categoryId);
   }

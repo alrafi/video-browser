@@ -2,8 +2,10 @@
   <div class="row header__app">
     <div class="col-4 col-md-3 col-lg-2 title">
       <i class="fas fa-bars"></i>
-      <img src="../assets/logo.png" alt="vue-logo" />
-      <h1>ueTube</h1>
+      <router-link to="/">
+        <img src="../assets/logo.png" alt="vue-logo" />
+      </router-link>
+      <router-link to="/">ueTube</router-link>
     </div>
     <SearchBar></SearchBar>
   </div>
@@ -30,7 +32,7 @@ h1 {
   /* border-bottom: 1px solid #eee; */
   display: flex;
   background-color: #272727;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 
 .title {
@@ -40,19 +42,22 @@ h1 {
 }
 
 .title img {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .title h1 {
-  margin: 0;
+  margin-top: 1px;
+  cursor: pointer;
 }
 
 .title i {
   width: 14px;
   height: 14px;
   margin-right: 15px;
-  margin-top: 3px;
+  margin-top: 6px;
 }
 
 .title a {
@@ -91,7 +96,7 @@ h1 {
   .title img {
     width: 18px;
     height: 18px;
-    margin-top: 7px;
+    margin-bottom: 3px;
   }
 
   .title h1 {
@@ -104,7 +109,7 @@ h1 {
     width: 10px;
     height: 10px;
     margin-right: 15px;
-    margin-top: 5px;
+    margin-top: 7px;
   }
 }
 </style>

@@ -1,30 +1,28 @@
 <template>
   <li @click="onVideoSelect">
-    <div class="image__container">
+    <div class="col-4 col-sm-3 image__container">
       <img :src="thumbnails" alt="thumbnail" />
     </div>
-    <div class="info__content">
+    <div class="col-8 col-sm-9 info__content">
       <h3>{{ video.snippet.title }}</h3>
       <p>{{ video.snippet.channelTitle }}</p>
-      <p>
-        {{ video.snippet.description }}
-      </p>
+      <p class="d-none d-md-block">{{ video.snippet.description }}</p>
     </div>
   </li>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
-  name: 'SearchResultItem',
-  props: ['video'],
+  name: "SearchResultItem",
+  props: ["video"],
   computed: {
     thumbnails() {
       return this.video.snippet.thumbnails.default.url;
     }
   },
   methods: {
-    ...mapActions(['selectVideo']),
+    ...mapActions(["selectVideo"]),
     onVideoSelect() {
       this.selectVideo(this.video);
     }
@@ -44,7 +42,7 @@ export default {
 
 .search__result li {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin-bottom: 15px;
   cursor: pointer;
 }
@@ -60,11 +58,24 @@ export default {
 }
 
 .image__container {
-  width: 200px;
+  /* width: 200px; */
   margin-right: 15px;
+  padding: 0;
 }
 
 .image__container img {
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .info__content h3 {
+    font-size: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .info__content h3 {
+    font-size: 80%;
+  }
 }
 </style>

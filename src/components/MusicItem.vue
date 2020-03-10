@@ -33,6 +33,8 @@ export default {
   background-color: #eee;
   border: 1px solid #363140;
   border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 0;
   color: #333;
   cursor: pointer;
 }
@@ -45,10 +47,5 @@ export default {
 .music__content img {
   width: 100%;
   border-radius: 10px;
-}
-
-.music__content .item__music {
-  margin-bottom: 15px;
-  padding: 10px;
 }
 </style>

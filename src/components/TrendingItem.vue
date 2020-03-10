@@ -36,8 +36,8 @@ export default {
   background-color: #eee;
   border: 1px solid #363140;
   border-radius: 10px;
-  /* padding: 0; */
-  /* padding-right: 15px; */
+  margin-bottom: 15px;
+  padding: 0;
   color: #333;
   cursor: pointer;
 }
