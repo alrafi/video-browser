@@ -5,6 +5,7 @@
       <Sidebar></Sidebar>
       <div class="col-lg-10 col-12 full__height content">
         <router-view></router-view>
+        <Footer></Footer>
       </div>
     </div>
   </div>
@@ -13,12 +14,14 @@
 <script>
 import Sidebar from "./components/Sidebar";
 import AppHeader from "./components/AppHeader";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
   components: {
     AppHeader,
-    Sidebar
+    Sidebar,
+    Footer
   }
 };
 </script>
