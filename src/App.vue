@@ -1,9 +1,9 @@
 <template>
   <div class="container-fluid">
+    <AppHeader></AppHeader>
     <div class="row">
       <Sidebar></Sidebar>
-      <div class="col-10 main__content">
-        <SearchBar></SearchBar>
+      <div class="col-lg-10 col-12 full__height content">
         <router-view></router-view>
         <!-- <Content></Content> -->
         <!-- <SearchResult></SearchResult> -->
@@ -17,16 +17,17 @@
 // import VideoList from './components/VideoList';
 // import VideoDetail from './components/VideoDetail';
 // import axios from "axios";
-import Sidebar from './components/Sidebar';
-import SearchBar from './components/SearchBar';
+import Sidebar from "./components/Sidebar";
+import AppHeader from "./components/AppHeader";
+// import SearchBar from "./components/SearchBar";
 // import Content from "./components/Content";
 // import SearchResult from './components/SearchResult';
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Sidebar,
-    SearchBar
+    AppHeader,
+    Sidebar
     // Content,
     // SearchResult
   },
@@ -66,7 +67,7 @@ html,
 body {
   background-color: #18141c;
   color: #d2cdd3;
-  font-family: 'Lato', 'Arial', sans-serif;
+  font-family: "Lato", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 300;
 }

@@ -1,15 +1,15 @@
 <template>
-  <div class="col" @click="onVideoSelect">
+  <div class="col-12 col-sm-6 col-md-3 trending__item" @click="onVideoSelect">
     <img :src="thumbnail" alt="thumbnail" />
     <h3>{{ videoTitle }}</h3>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
-  name: 'TrendingItem',
-  props: ['video'],
+  name: "TrendingItem",
+  props: ["video"],
   computed: {
     thumbnail() {
       return this.video.snippet.thumbnails.medium.url;
@@ -19,7 +19,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['selectContent']),
+    ...mapActions(["selectContent"]),
     onVideoSelect() {
       this.selectContent(this.video);
     }
@@ -32,16 +32,16 @@ export default {
   font-weight: 600;
 }
 
-.trending__content .col {
+.trending__content .trending__item {
   background-color: #eee;
   border: 1px solid #363140;
   border-radius: 10px;
-  padding: 0;
-  margin-right: 15px;
+  /* padding: 0; */
+  /* padding-right: 15px; */
   color: #333;
   cursor: pointer;
 }
-.trending__content .col h3 {
+.trending__content .trending__item h3 {
   font-size: 70%;
   margin: 10px;
 }

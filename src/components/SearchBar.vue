@@ -1,5 +1,5 @@
 <template>
-  <form class="form__search" @submit="onSubmit">
+  <form class="col-6 col-md-7 col-lg-8 form__search" @submit="onSubmit">
     <button type="submit">
       <i class="fas fa-search"></i>
     </button>
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
-  name: 'SearchBar',
+  name: "SearchBar",
 
   methods: {
-    ...mapActions(['fetchVideos']),
+    ...mapActions(["fetchVideos"]),
     onSubmit(event) {
       event.preventDefault();
       // const searchTerm = event.target.children[1].value;
@@ -26,16 +26,6 @@ export default {
 </script>
 
 <style>
-.form__search {
-  border: solid 1px #7d6e73;
-  border-radius: 50px;
-  width: 75%;
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  padding: 2px 10px;
-}
-
 .form__search input {
   background-color: transparent;
   border: none;

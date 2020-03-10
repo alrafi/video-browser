@@ -1,16 +1,16 @@
 <template>
-  <div class="col-5 item__music" @click="onVideoSelect">
+  <div class="col-12 col-md-6 item__music" @click="onVideoSelect">
     <img :src="thumbnail" alt="thumbnail" />
     <h3>{{ videoTitle }}</h3>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
-  name: 'MusicItem',
-  props: ['video'],
+  name: "MusicItem",
+  props: ["video"],
   computed: {
     thumbnail() {
       return this.video.snippet.thumbnails.medium.url;
@@ -20,7 +20,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['selectContent']),
+    ...mapActions(["selectContent"]),
     onVideoSelect() {
       this.selectContent(this.video);
     }
@@ -29,16 +29,16 @@ export default {
 </script>
 
 <style>
-.music__content .col-5 {
+.music__content .item__music {
   background-color: #eee;
   border: 1px solid #363140;
   border-radius: 10px;
-  padding: 0;
+  /* margin: 10px; */
+  /* margin-right: 15px; */
   color: #333;
-  cursor: pointer;
 }
 
-.music__content .col-5 h3 {
+.music__content .item__music h3 {
   font-size: 70%;
   margin: 10px;
 }
@@ -48,8 +48,9 @@ export default {
   border-radius: 10px;
 }
 
-.item__music {
-  margin-right: 30px;
-  margin-bottom: 40px;
+.music__content .item__music {
+  /* margin-right: 15px; */
+  margin-bottom: 15px;
+  padding: 10px;
 }
 </style>
