@@ -19,7 +19,8 @@ export default {
         key: process.env.VUE_APP_API_KEY,
         part: 'snippet, statistics',
         chart: 'mostPopular',
-        regionCode: 'ID'
+        regionCode: 'ID',
+        maxResults: 4
       }
     });
   },
