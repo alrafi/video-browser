@@ -35,7 +35,7 @@
           <i class="fas fa-gamepad"></i>Gaming
         </li>
         <li>
-          <i class="fas fa-plane"></i>Travel & Events
+          <i class="fas fa-plane"></i>Travel
         </li>
         <li>
           <i class="fas fa-football-ball"></i>Sports
@@ -44,16 +44,16 @@
           <i class="fas fa-camera"></i>Entertainment
         </li>
         <li>
-          <i class="fas fa-video"></i>Film & Animation
+          <i class="fas fa-video"></i>Films
         </li>
         <li>
-          <i class="fas fa-car"></i>Autos & Vehicles
+          <i class="fas fa-car"></i>Vehicles
         </li>
         <li>
-          <i class="fas fa-book-open"></i>News & Politics
+          <i class="fas fa-book-open"></i>News
         </li>
         <li>
-          <i class="fas fa-dna"></i>Science & Tech
+          <i class="fas fa-dna"></i>Science
         </li>
       </ul>
     </div>
