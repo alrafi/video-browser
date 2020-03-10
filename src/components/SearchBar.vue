@@ -8,17 +8,15 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 
 export default {
-  name: "SearchBar",
+  name: 'SearchBar',
 
   methods: {
-    ...mapActions(["fetchVideos"]),
+    ...mapActions(['fetchVideos']),
     onSubmit(event) {
       event.preventDefault();
-      // const searchTerm = event.target.children[1].value;
-      console.log(`v-model: ${this.searchTerm}`);
       this.fetchVideos(this.searchTerm);
     }
   }

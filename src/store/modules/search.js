@@ -10,7 +10,6 @@ const state = {
 const getters = {
   videosResult: state => state.searchResult,
   getSelectedVideo: state => state.selectedVideo,
-  // isRecommended: state => !!state.searchResult,
   kindRequest: state => state.kind
 };
 
@@ -36,7 +35,6 @@ const mutations = {
   },
   setKind: (state, kind) => {
     state.kind = kind;
-    console.log(state.kind);
   }
 };
 

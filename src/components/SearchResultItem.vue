@@ -12,19 +12,19 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
 export default {
-  name: "SearchResultItem",
-  props: ["video"],
+  name: 'SearchResultItem',
+  props: ['video'],
   computed: {
     thumbnails() {
-      return this.video.snippet.thumbnails.default.url;
+      return this.video.snippet.thumbnails.medium.url;
     }
   },
   methods: {
-    ...mapActions(["selectVideo"]),
+    ...mapActions(['selectContent']),
     onVideoSelect() {
-      this.selectVideo(this.video);
+      this.selectContent(this.video);
     }
   }
 };

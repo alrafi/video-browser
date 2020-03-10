@@ -6,7 +6,6 @@ const state = {
   gaming: [],
   music: [],
   recommended: []
-  // selectedContent: null
 };
 
 const getters = {
@@ -14,7 +13,6 @@ const getters = {
   gamingVideos: state => state.gaming,
   musicVideos: state => state.music,
   recommendedVideos: state => state.recommended
-  // getSelectedContent: state => state.selectedContent
 };
 
 const actions = {
@@ -33,7 +31,7 @@ const actions = {
     const response = await api.fetchCategoryVideos(categoryId, maxResults);
     commit('setMusic', response.data.items);
   },
-  async fetchRecommended({ commit }, id = 22) {
+  async fetchRecommended({ commit }, id = 10) {
     const response = await api.fetchCategoryVideos(id);
     commit('setRecommended', response.data.items);
   },
@@ -47,23 +45,16 @@ const actions = {
 const mutations = {
   setTrending: (state, videos) => {
     state.trending = videos;
-    console.log(state.trending);
   },
   setGaming: (state, videos) => {
     state.gaming = videos;
-    console.log(state.gaming);
   },
   setMusic: (state, videos) => {
     state.music = videos;
-    console.log(state.music);
   },
   setRecommended: (state, videos) => {
     state.recommended = videos;
-    console.log(state.recommended);
   }
-  // setSelectedContent: (state, video) => {
-  //   state.selectedContent = video;
-  // }
 };
 
 export default {
