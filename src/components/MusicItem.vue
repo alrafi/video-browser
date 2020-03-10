@@ -33,9 +33,8 @@ export default {
   background-color: #eee;
   border: 1px solid #363140;
   border-radius: 10px;
-  /* margin: 10px; */
-  /* margin-right: 15px; */
   color: #333;
+  cursor: pointer;
 }
 
 .music__content .item__music h3 {
@@ -49,7 +48,6 @@ export default {
 }
 
 .music__content .item__music {
-  /* margin-right: 15px; */
   margin-bottom: 15px;
   padding: 10px;
 }
