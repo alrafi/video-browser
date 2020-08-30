@@ -13,21 +13,21 @@ export const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: Content
+      component: Content,
     },
     {
       path: '/search',
-      component: SearchResult
+      component: SearchResult,
     },
     {
-      path: '/play',
-      component: VideoDetail
-    }
-  ]
+      path: '/play/:id',
+      component: VideoDetail,
+    },
+  ],
 });
 
 new Vue({
   store,
   router,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount('#app');

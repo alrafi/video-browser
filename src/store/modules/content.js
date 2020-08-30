@@ -5,14 +5,14 @@ const state = {
   trending: [],
   gaming: [],
   music: [],
-  recommended: []
+  recommended: [],
 };
 
 const getters = {
-  trendingVideos: state => state.trending,
-  gamingVideos: state => state.gaming,
-  musicVideos: state => state.music,
-  recommendedVideos: state => state.recommended
+  trendingVideos: (state) => state.trending,
+  gamingVideos: (state) => state.gaming,
+  musicVideos: (state) => state.music,
+  recommendedVideos: (state) => state.recommended,
 };
 
 const actions = {
@@ -37,9 +37,9 @@ const actions = {
   },
   selectContent({ commit }, video) {
     commit('setSelectedVideo', video, { root: true });
-    router.push('/play');
+    router.push(`/play/${video.id}`);
     commit('setKind', video.kind, { root: true });
-  }
+  },
 };
 
 const mutations = {
@@ -54,12 +54,12 @@ const mutations = {
   },
   setRecommended: (state, videos) => {
     state.recommended = videos;
-  }
+  },
 };
 
 export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };
