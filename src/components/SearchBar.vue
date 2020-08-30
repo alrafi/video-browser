@@ -18,8 +18,8 @@ export default {
     onSubmit(event) {
       event.preventDefault();
       this.fetchVideos(this.searchTerm);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -43,6 +43,7 @@ export default {
   border: none;
   margin-right: 10px;
   display: flex;
+  align-items: center;
 }
 
 .form__search i {

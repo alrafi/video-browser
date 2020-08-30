@@ -5,20 +5,20 @@
       <router-link to="/">
         <img src="../assets/logo.png" alt="vue-logo" />
       </router-link>
-      <router-link to="/">ueTube</router-link>
+      <router-link to="/" class="title__name">ueTube</router-link>
     </div>
     <SearchBar></SearchBar>
   </div>
 </template>
 
 <script>
-import SearchBar from "./SearchBar";
+import SearchBar from './SearchBar';
 
 export default {
-  name: "AppHeader",
+  name: 'AppHeader',
   components: {
-    SearchBar
-  }
+    SearchBar,
+  },
 };
 </script>
 
@@ -36,8 +36,6 @@ h1 {
 
 .title {
   display: flex;
-  /* align-items: baseline; */
-  /* margin-right: 50px; */
 }
 
 .title img {
@@ -76,14 +74,12 @@ h1 {
 
 .full__height {
   height: auto;
-  /* border: 1px solid #ccc; */
 }
 
 .header__app form {
   box-sizing: border-box;
   border: solid 1px #7d6e73;
   border-radius: 50px;
-  /* width: 50%; */
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -109,6 +105,12 @@ h1 {
     height: 10px;
     margin-right: 15px;
     margin-top: 7px;
+  }
+}
+
+@media (max-width: 359px) {
+  .title__name {
+    display: none;
   }
 }
 </style>
